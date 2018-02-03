@@ -10,7 +10,7 @@ import com.malouane.data.JokersRepo;
 public class JokesApiEndpoint {
 
   /** Endpoint method that that retrieves a joke */
-  @ApiMethod(name = "getJoke") public MyBean retrieveJoke() {
+  @ApiMethod(name = "getJoke") public MyBean getJoke() {
     MyBean response = new MyBean();
     JokersRepo jokersRepo = new JokersRepo();
     response.setData(jokersRepo.tellJoke());

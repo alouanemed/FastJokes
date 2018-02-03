@@ -8,14 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import com.malouane.jokedisplay.JokeDisplayActivity;
 
-public class MainActivity extends AppCompatActivity implements JokeTeller {
+public class MainActivity extends AppCompatActivity implements JokeRepo {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -27,19 +26,18 @@ public class MainActivity extends AppCompatActivity implements JokeTeller {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
-    public void tellJoke(String joke) {
-        Intent intent = new Intent(this, JokeDisplayActivity.class);
-        intent.putExtra("jokeToDisplay", joke);
-        startActivity(intent);
-    }
-    public void triggerApi(View view) {
+    public void performGetJoke(View view) {
         new getJokeAsyncTask().execute(this);
     }
+
+  @Override public void showJoke(String joke) {
+    Intent intent = new Intent(this, JokeDisplayActivity.class);
+    intent.putExtra("jokeToDisplay", joke);
+    startActivity(intent);
+  }
 }

@@ -6,7 +6,7 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.malouane.backend.JokesApiEndpoint;
-import com.malouane.backend.myApi.MyApi;
+//import com.malouane.backend.myApi.MyApi;
 import java.io.IOException;
 
 public class getJokeAsyncTask extends AsyncTask<JokeRepo, Void, String> {

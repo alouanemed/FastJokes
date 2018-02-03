@@ -1,4 +1,7 @@
 <resources>
   <string name="app_name">FastJokes</string>
   <string name="action_settings">settings</string>
+  <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+  <string name="next">Shuffle</string>
+  <string name="help">Tap shuffle to fetch a joke</string>
 </resources>
