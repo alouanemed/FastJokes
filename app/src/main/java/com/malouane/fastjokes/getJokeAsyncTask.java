@@ -5,12 +5,11 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-import com.malouane.backend.JokesApiEndpoint;
 import com.malouane.backend.myApi.MyApi;
 import java.io.IOException;
 
 public class getJokeAsyncTask extends AsyncTask<JokeRepo, Void, String> {
-    private static JokesApiEndpoint myApiService = null;
+    private static MyApi myApiService = null;
     private JokeRepo jokeTeller;
 
     @Override
