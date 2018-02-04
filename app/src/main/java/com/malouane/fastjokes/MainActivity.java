@@ -3,6 +3,7 @@ package com.malouane.fastjokes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements JokeRepo {
         return super.onOptionsItemSelected(item);
     }
     public void performGetJoke(View view) {
+
+        Log.d("Main", "clicked");
         new getJokeAsyncTask().execute(this);
     }
 

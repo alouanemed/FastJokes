@@ -1,6 +1,7 @@
 package com.malouane.fastjokes;
 
 import android.os.AsyncTask;
+import android.util.Log;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -36,6 +37,7 @@ public class getJokeAsyncTask extends AsyncTask<JokeRepo, Void, String> {
         try {
             return myApiService.getJoke().execute().getData();
         } catch (IOException e) {
+            Log.d("AsyncJoke", "IOException" + e.getMessage());
             return e.getMessage();
         }
     }

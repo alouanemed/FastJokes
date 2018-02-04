@@ -49,3 +49,20 @@ ext {
     espressoIntent = "com.android.support.test.espresso:espresso-intents:$espressoCoreVersion"
     supportAnnotations = "com.android.support:support-annotations:$supportLibVersion"
 }
+
+/**
+ * Launches the GCE local development server
+ * Runs all tests
+ * Shuts the server down again
+ */
+task TestWithGCETask(dependsOn: ":backend:appengineRun") {
+    group "Other"
+    description "Launches the GCE local development server\n" + "Runs all tests\n" +
+        "Shuts the server down again"
+
+    project(":backend").afterEvaluate { backend ->
+        backend.extensions.appengine.daemon = true
+    }
+
+    finalizedBy(":app:connectedAndroidTest").finalizedBy(":backend:appengineStop")
+}
