@@ -39,12 +39,14 @@ dependencies {
     implementation rootProject.ext.supportLibAppCompat
     implementation rootProject.ext.supportLibDesign
     implementation rootProject.ext.supportCardView
-    compile 'com.google.code.findbugs:jsr305:2.0.1'
-    compile project(':JokeDisplay')
-    compile project(path: ':backend', configuration: 'android-endpoints')
-    compile 'com.google.http-client:google-http-client-android:1.12.0-beta'
-    compile 'com.google.api-client:google-api-client:1.23.0'
-    freeCompile  'com.google.android.gms:play-services-ads:11.8.0'
+
+    implementation 'com.google.code.findbugs:jsr305:2.0.1'
+    implementation 'com.google.http-client:google-http-client-android:1.12.0-beta'
+    implementation 'com.google.api-client:google-api-client:1.23.0'
+    freeImplementation  'com.google.android.gms:play-services-ads:11.8.0'
+
+    implementation project(':JokeDisplay')
+    implementation project(path: ':backend', configuration: 'android-endpoints')
 
     implementation rootProject.ext.espressoIdling
     androidTestImplementation rootProject.ext.supportAnnotations

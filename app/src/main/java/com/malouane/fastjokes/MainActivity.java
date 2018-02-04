@@ -1,9 +1,9 @@
 package com.malouane.fastjokes;
 
+import android.app.MediaRouteButton;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,10 +11,13 @@ import com.malouane.jokedisplay.JokeDisplayActivity;
 
 public class MainActivity extends AppCompatActivity implements JokeRepo {
 
+  MediaRouteButton progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+      progressBar = findViewById(R.id.pb_get_joke);
     }
 
     @Override
@@ -33,12 +36,12 @@ public class MainActivity extends AppCompatActivity implements JokeRepo {
         return super.onOptionsItemSelected(item);
     }
     public void performGetJoke(View view) {
-
-        Log.d("Main", "clicked");
+      progressBar.setVisibility(View.VISIBLE);
         new getJokeAsyncTask().execute(this);
     }
 
   @Override public void showJoke(String joke) {
+    progressBar.setVisibility(View.GONE);
     Intent intent = new Intent(this, JokeDisplayActivity.class);
     intent.putExtra("jokeToDisplay", joke);
     startActivity(intent);
